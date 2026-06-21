@@ -1,0 +1,31 @@
+.time-dropdown__list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray);
+  border-radius: 6px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+
+  max-height: 300px;
+}
+
+/* 시간 항목 버튼 */
+.time-dropdown__item {
+  padding: 16px;
+  font-size: 16px;
+
+  color: var(--color-black);
+  text-align: left;
+}
+
+/* 선택 시간 강조 */
+.time-dropdown__item--selected {
+  background-color: var(--color-main);
+  color: var(--color-white);
+}
