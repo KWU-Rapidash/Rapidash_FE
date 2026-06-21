@@ -1,0 +1,26 @@
+.floor-dropdown__list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray);
+  border-radius: 6px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* 층 항목 버튼 */
+.floor-dropdown__item {
+  padding: 16px;
+  font-size: 16px;
+  color: var(--color-black);
+  text-align: left;
+}
+
+/* 선택 층 강조 */
+.floor-dropdown__item--selected {
+  background-color: var(--color-main);
+  color: var(--color-white);
+}
