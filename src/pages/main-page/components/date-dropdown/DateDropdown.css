@@ -1,0 +1,82 @@
+.date-dropdown__calendar {
+  position: absolute;
+  /* 토글 버튼 아래에 절대 위치로 표시 */
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 100;
+  padding: 8px;
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray);
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* 년/월 네비게이션 헤더 */
+.date-dropdown__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+  width: 308px;
+}
+
+/* 이전/다음 달 버튼 */
+.date-dropdown__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 16px;
+  color: var(--color-black);
+  border-radius: 5px;
+}
+
+/* 월/년도 텍스트 */
+.date-dropdown__month,
+.date-dropdown__year {
+  font-size: 16px;
+  font-weight: 500;
+
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/* 요일/날짜 7열 그리드 */
+.date-dropdown__weekdays,
+.date-dropdown__days {
+  display: grid;
+  grid-template-columns: repeat(7, 44px);
+}
+
+/* 요일 텍스트 */
+.date-dropdown__weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 16px;
+
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/* 날짜 버튼 */
+.date-dropdown__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 16px;
+  font-weight: 300;
+
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 100px;
+}
+
+/* 선택 날짜 강조 */
+.date-dropdown__day--selected {
+  background-color: var(--color-main);
+  color: var(--color-background);
+}
