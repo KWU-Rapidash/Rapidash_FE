@@ -6,6 +6,7 @@ import CalendarIcon from '../../../../assets/filter-bar/calendar-icon.svg'
 import DropdownIcon from '../../../../assets/filter-bar/dropdown-icon.svg'
 import DateDropdown from '../date-dropdown/DateDropdown'
 import TimeDropdown from '../time-dropdown/TimeDropdown'
+<<<<<<< HEAD
 import FloorDropdown from '../floor-dropdown/FloorDropdown'
 
 export default function FilterBar() {
@@ -97,6 +98,8 @@ import './FilterBar.css'
 import CalendarIcon from '../../../../assets/filter-bar/calendar-icon.svg'
 import DropdownIcon from '../../../../assets/filter-bar/dropdown-icon.svg'
 import DateDropdown from '../date-dropdown/DateDropdown'
+=======
+>>>>>>> 5aaf714 (feat : 시간 드롭다운 열기/닫기 및 시간 선택 상태 관리 (#13))
 
 export default function FilterBar() {
 <<<<<<< HEAD
@@ -107,20 +110,26 @@ export default function FilterBar() {
 =======
   const [isDateOpen, setIsDateOpen] = useState(false)
   const [selectedDate, setSelectedDate] = useState(null)
+  const [isTimeOpen, setIsTimeOpen] = useState(false)
+  const [selectedTime, setSelectedTime] = useState(null)
   const dateRef = useRef(null)
+  const timeRef = useRef(null)
 
-  // 외부 클릭 시 달력 닫기
+  // 외부 클릭 시 드롭다운 닫기
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dateRef.current && !dateRef.current.contains(e.target)) {
         setIsDateOpen(false)
+      }
+      if (timeRef.current && !timeRef.current.contains(e.target)) {
+        setIsTimeOpen(false)
       }
     }
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  // 날짜 mm/dd/yy 형식으로
+  // 날짜를 mm/dd/yy 형식으로
   const formatDate = (date) => {
     if (!date) return '날짜'
     const mm = String(date.getMonth() + 1).padStart(2, '0')
@@ -134,7 +143,15 @@ export default function FilterBar() {
     setIsDateOpen(false)
   }
 
+<<<<<<< HEAD
 >>>>>>> 075fef2 (feat : 날짜 드롭다운 열기/닫기 및 날짜 선택 상태 관리 (#12))
+=======
+  const handleTimeSelect = (time) => {
+    setSelectedTime(time)
+    setIsTimeOpen(false)
+  }
+
+>>>>>>> 5aaf714 (feat : 시간 드롭다운 열기/닫기 및 시간 선택 상태 관리 (#13))
   return (
     <div className='filter-bar'>
       <div className='filter-bar__toggle-wrapper' ref={dateRef}>
@@ -145,9 +162,12 @@ export default function FilterBar() {
         {isDateOpen && <DateDropdown selectedDate={selectedDate} onSelect={handleDateSelect} />}
       </div>
 
-      <div className='filter-bar__toggle'>
-        <span className='filter-bar__toggle-text'>시간</span>
-        <img src={DropdownIcon} alt='' className='filter-bar__toggle-icon' />
+      <div className='filter-bar__toggle-wrapper' ref={timeRef}>
+        <div className='filter-bar__toggle' onClick={() => setIsTimeOpen((prev) => !prev)}>
+          <span className='filter-bar__toggle-text'>{selectedTime || '시간'}</span>
+          <img src={DropdownIcon} alt='' className='filter-bar__toggle-icon' />
+        </div>
+        {isTimeOpen && <TimeDropdown selectedTime={selectedTime} onSelect={handleTimeSelect} />}
       </div>
 
       <div className='filter-bar__toggle'>
