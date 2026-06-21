@@ -1,0 +1,13 @@
+.floor-map {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.floor-map__board {
+  position: relative;
+  width: 100%;
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+}
