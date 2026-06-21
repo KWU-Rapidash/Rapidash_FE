@@ -1,4 +1,6 @@
 import './MainPage.css'
+import { ReactComponent as KwangwoonLogo } from '../../../assets/header/kwangwoon-logo.svg'
+import { ReactComponent as MypageIcon } from '../../../assets/header/mypage-icon.svg'
 import FilterBar from '../components/filter-bar/FilterBar'
 import FloorMap from '../components/floor-map/FloorMap'
 import ReservationModal from '../components/reservation-modal/ReservationModal'
@@ -9,8 +11,10 @@ export default function MainPage() {
     <div className='main-page'>
       <div className='main-page__topbar'>
         <div className='main-page__topbar-inner'>
-          <img className='main-page__topbar-logo' alt='광운대학교' />
-          <button className='main-page__topbar-mypage' type='button' />
+          <KwangwoonLogo className='main-page__topbar-logo' />
+          <button className='main-page__topbar-mypage' type='button'>
+            <MypageIcon />
+          </button>
         </div>
       </div>
 
