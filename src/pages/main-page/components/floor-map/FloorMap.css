@@ -9,9 +9,13 @@
   width: 100%;
 
   background-color: var(--color-white);
+<<<<<<< HEAD
 }
 
 .floor-map__image {
   width: 100%;
   height: auto;
+=======
+  border: 1px solid var(--color-black);
+>>>>>>> 6e7a906 (design : 플로어맵 스타일 적용 (#19))
 }
