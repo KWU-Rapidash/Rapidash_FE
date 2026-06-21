@@ -4,14 +4,18 @@ import CalendarIcon from '../../../../assets/filter-bar/calendar-icon.svg'
 import DropdownIcon from '../../../../assets/filter-bar/dropdown-icon.svg'
 import DateDropdown from '../date-dropdown/DateDropdown'
 import TimeDropdown from '../time-dropdown/TimeDropdown'
+import FloorDropdown from '../floor-dropdown/FloorDropdown'
 
 export default function FilterBar() {
   const [isDateOpen, setIsDateOpen] = useState(false)
   const [selectedDate, setSelectedDate] = useState(null)
   const [isTimeOpen, setIsTimeOpen] = useState(false)
   const [selectedTime, setSelectedTime] = useState(null)
+  const [isFloorOpen, setIsFloorOpen] = useState(false)
+  const [selectedFloor, setSelectedFloor] = useState(null)
   const dateRef = useRef(null)
   const timeRef = useRef(null)
+  const floorRef = useRef(null)
 
   // 외부 클릭 시 드롭다운 닫기
   useEffect(() => {
@@ -21,6 +25,9 @@ export default function FilterBar() {
       }
       if (timeRef.current && !timeRef.current.contains(e.target)) {
         setIsTimeOpen(false)
+      }
+      if (floorRef.current && !floorRef.current.contains(e.target)) {
+        setIsFloorOpen(false)
       }
     }
     document.addEventListener('mousedown', handleClickOutside)
@@ -46,6 +53,11 @@ export default function FilterBar() {
     setIsTimeOpen(false)
   }
 
+  const handleFloorSelect = (floor) => {
+    setSelectedFloor(floor)
+    setIsFloorOpen(false)
+  }
+
   return (
     <div className='filter-bar'>
       <div className='filter-bar__toggle-wrapper' ref={dateRef}>
@@ -64,9 +76,14 @@ export default function FilterBar() {
         {isTimeOpen && <TimeDropdown selectedTime={selectedTime} onSelect={handleTimeSelect} />}
       </div>
 
-      <div className='filter-bar__toggle'>
-        <span className='filter-bar__toggle-text'>1층</span>
-        <img src={DropdownIcon} alt='' className='filter-bar__toggle-icon' />
+      <div className='filter-bar__toggle-wrapper' ref={floorRef}>
+        <div className='filter-bar__toggle' onClick={() => setIsFloorOpen((prev) => !prev)}>
+          <span className='filter-bar__toggle-text'>{selectedFloor || '1층'}</span>
+          <img src={DropdownIcon} alt='' className='filter-bar__toggle-icon' />
+        </div>
+        {isFloorOpen && (
+          <FloorDropdown selectedFloor={selectedFloor} onSelect={handleFloorSelect} />
+        )}
       </div>
     </div>
   )
