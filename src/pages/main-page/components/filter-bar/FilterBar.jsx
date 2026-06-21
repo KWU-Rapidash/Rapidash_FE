@@ -12,14 +12,22 @@ import TimeDropdown from '../time-dropdown/TimeDropdown'
 >>>>>>> 2feddc5 (feat : 층 드롭다운 열기/닫기 및 층 선택 상태 관리 (#14))
 import FloorDropdown from '../floor-dropdown/FloorDropdown'
 
-export default function FilterBar() {
+export default function FilterBar({
+  selectedDate,
+  onDateSelect,
+  selectedTime,
+  onTimeSelect,
+  selectedFloor,
+  onFloorSelect,
+}) {
   const [isDateOpen, setIsDateOpen] = useState(false)
-  const [selectedDate, setSelectedDate] = useState(null)
   const [isTimeOpen, setIsTimeOpen] = useState(false)
-  const [selectedTime, setSelectedTime] = useState(null)
   const [isFloorOpen, setIsFloorOpen] = useState(false)
+<<<<<<< HEAD
   const [selectedFloor, setSelectedFloor] = useState(null)
 <<<<<<< HEAD
+=======
+>>>>>>> f1ee050 (feat : 필터 바 props 연결 (#26))
   const dateRef = useRef(null)
   const timeRef = useRef(null)
   const floorRef = useRef(null)
@@ -51,17 +59,17 @@ export default function FilterBar() {
   }
 
   const handleDateSelect = (date) => {
-    setSelectedDate(date)
+    onDateSelect(date)
     setIsDateOpen(false)
   }
 
   const handleTimeSelect = (time) => {
-    setSelectedTime(time)
+    onTimeSelect(time)
     setIsTimeOpen(false)
   }
 
   const handleFloorSelect = (floor) => {
-    setSelectedFloor(floor)
+    onFloorSelect(floor)
     setIsFloorOpen(false)
   }
 
