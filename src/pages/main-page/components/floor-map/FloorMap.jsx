@@ -1,4 +1,5 @@
 import './FloorMap.css'
+<<<<<<< HEAD
 import Floor1 from '../../../../assets/floor-map/floor-1.svg'
 import Floor2 from '../../../../assets/floor-map/floor-2.svg'
 
@@ -12,4 +13,9 @@ export default function FloorMap({ floor = 1 }) {
       </div>
     </div>
   )
+=======
+
+export default function FloorMap() {
+  return null
+>>>>>>> 869d6b7 (design : 메인 페이지 레이아웃 마크업 및 라우터 등록 (#27))
 }

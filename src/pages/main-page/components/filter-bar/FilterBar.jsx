@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useRef, useEffect } from 'react'
 import './FilterBar.css'
 import CalendarIcon from '../../../../assets/filter-bar/calendar-icon.svg'
@@ -87,4 +88,10 @@ export default function FilterBar() {
       </div>
     </div>
   )
+=======
+import './FilterBar.css'
+
+export default function FilterBar() {
+  return null
+>>>>>>> 869d6b7 (design : 메인 페이지 레이아웃 마크업 및 라우터 등록 (#27))
 }
