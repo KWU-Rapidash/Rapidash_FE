@@ -2,6 +2,9 @@ import './ReservationModal.css'
 
 export default function ReservationModal() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 57a339e (design : 예약 신청 모달 마크업 (#20))
   return (
     <div className='reservation-modal__overlay'>
       <div className='reservation-modal'>
@@ -32,7 +35,10 @@ export default function ReservationModal() {
       </div>
     </div>
   )
+<<<<<<< HEAD
 =======
   return null
 >>>>>>> 869d6b7 (design : 메인 페이지 레이아웃 마크업 및 라우터 등록 (#27))
+=======
+>>>>>>> 57a339e (design : 예약 신청 모달 마크업 (#20))
 }
