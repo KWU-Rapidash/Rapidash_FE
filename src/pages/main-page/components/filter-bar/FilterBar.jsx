@@ -92,6 +92,27 @@ export default function FilterBar() {
 import './FilterBar.css'
 
 export default function FilterBar() {
+<<<<<<< HEAD
   return null
 >>>>>>> 869d6b7 (design : 메인 페이지 레이아웃 마크업 및 라우터 등록 (#27))
+=======
+  return (
+    <div className='filter-bar'>
+      <div className='filter-bar__toggle'>
+        <div className='filter-bar__toggle-calendar' />
+        <span className='filter-bar__toggle-text'>06/16/26</span>
+      </div>
+
+      <div className='filter-bar__toggle'>
+        <span className='filter-bar__toggle-text'>시간</span>
+        <span className='filter-bar__toggle-icon' />
+      </div>
+
+      <div className='filter-bar__toggle'>
+        <span className='filter-bar__toggle-text'>1층</span>
+        <span className='filter-bar__toggle-icon' />
+      </div>
+    </div>
+  )
+>>>>>>> 4e3bdd3 (design : 상단 필터 바 마크업 (#18))
 }
