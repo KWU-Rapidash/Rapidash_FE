@@ -9,5 +9,9 @@
   width: 100%;
 
   background-color: var(--color-white);
-  border: 1px solid var(--color-black);
+}
+
+.floor-map__image {
+  width: 100%;
+  height: auto;
 }
