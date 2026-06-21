@@ -1,0 +1,76 @@
+.reservation-modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(45, 54, 72, 0.8); /* 따로 변수 설정 안 됨 */
+  z-index: 200;
+}
+
+.reservation-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 320px;
+  padding: 20px;
+
+  background-color: var(--color-white);
+  border-radius: 14px;
+  box-shadow: var(--shadow-modal);
+}
+
+.reservation-modal__title {
+  font-size: 20px;
+  font-weight: 700;
+
+  color: var(--color-black);
+  padding: 2px 0;
+}
+
+.reservation-modal__info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.reservation-modal__info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.reservation-modal__info-label {
+  font-size: 16px;
+  font-weight: 600;
+
+  color: var(--color-black);
+  line-height: 1.625;
+}
+
+.reservation-modal__info-value {
+  font-size: 16px;
+  font-weight: 400;
+
+  color: var(--color-black);
+  line-height: 1.625;
+}
+
+/* 컴포넌트 제작 전이라 임시로 만듦 */
+.reservation-modal__btn {
+  width: 100%;
+  padding: 16px 24px;
+
+  background-color: var(--color-main);
+  color: var(--color-white);
+
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 16px;
+}
