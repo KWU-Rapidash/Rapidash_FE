@@ -1,0 +1,40 @@
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filter-bar__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 44px;
+  padding: 10px 12px;
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray);
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2); /*따로 변수 설정 x*/
+  cursor: pointer;
+}
+
+.filter-bar__toggle-calendar {
+  width: 24px;
+  height: 24px;
+
+  border: 1px solid var(--color-gray);
+  border-radius: 5px;
+}
+
+.filter-bar__toggle-text {
+  font-size: 16px;
+
+  color: var(--color-black);
+  white-space: nowrap;
+}
+
+.filter-bar__toggle-icon {
+  width: 20px;
+  height: 20px;
+}
