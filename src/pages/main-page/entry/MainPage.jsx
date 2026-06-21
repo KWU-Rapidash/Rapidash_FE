@@ -13,6 +13,9 @@ export default function MainPage() {
   const [selectedTime, setSelectedTime] = useState(null)
   const [selectedFloor, setSelectedFloor] = useState('1층')
   const [roomStatus, setRoomStatus] = useState({})
+  const [selectedRoom, setSelectedRoom] = useState(null)
+  const [isReservationOpen, setIsReservationOpen] = useState(false)
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false)
 
   // 날짜/시간/층 변경 시 예약 현황 조회
   useEffect(() => {
@@ -29,6 +32,18 @@ export default function MainPage() {
 
     loadRoomStatus()
   }, [selectedDate, selectedTime, selectedFloor])
+
+  // 강의실 클릭 시 예약 신청 모달 열기
+  const handleRoomClick = (roomId) => {
+    setSelectedRoom(roomId)
+    setIsReservationOpen(true)
+  }
+
+  // 예약 신청 후 확정 모달 열기
+  const handleConfirm = () => {
+    setIsReservationOpen(false)
+    setIsConfirmOpen(true)
+  }
 
   return (
     <div className='main-page'>
@@ -50,11 +65,18 @@ export default function MainPage() {
           selectedFloor={selectedFloor}
           onFloorSelect={setSelectedFloor}
         />
-        <FloorMap floor={selectedFloor} roomStatus={roomStatus} />
+        <FloorMap floor={selectedFloor} roomStatus={roomStatus} onRoomClick={handleRoomClick} />
       </div>
 
-      {/* <ReservationModal /> */}
-      {/* <ConfirmModal /> */}
+      <ReservationModal
+        isOpen={isReservationOpen}
+        onClose={() => setIsReservationOpen(false)}
+        onConfirm={handleConfirm}
+        selectedRoom={selectedRoom}
+        selectedDate={selectedDate}
+        selectedTime={selectedTime}
+      />
+      <ConfirmModal isOpen={isConfirmOpen} onClose={() => setIsConfirmOpen(false)} />
     </div>
   )
 }
