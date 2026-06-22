@@ -123,3 +123,8 @@
 .date-dropdown__day--other {
   color: #d5d8de;
 }
+
+.date-dropdown__day--disabled {
+  color: #d5d8de;
+  cursor: default;
+}

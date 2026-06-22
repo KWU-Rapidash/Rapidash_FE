@@ -54,6 +54,12 @@ export default function DateDropdown({ selectedDate, onSelect }) {
     // 날짜 버튼 렌더링
     for (let d = 1; d <= daysInMonth; d++) {
       const date = new Date(currentYear, currentMonth, d)
+
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+
+      const isPastDate = date < today
+
       const isSelected =
         selectedDate &&
         selectedDate.getFullYear() === currentYear &&
@@ -66,10 +72,12 @@ export default function DateDropdown({ selectedDate, onSelect }) {
         <button
           key={d}
           type='button'
+          disabled={isPastDate}
           className={`date-dropdown__day
-      ${isSelected ? 'date-dropdown__day--selected' : ''}
-      ${isWeekend ? 'date-dropdown__day--weekend' : ''}
-    `}
+    ${isSelected ? 'date-dropdown__day--selected' : ''}
+    ${isWeekend ? 'date-dropdown__day--weekend' : ''}
+    ${isPastDate ? 'date-dropdown__day--disabled' : ''}
+  `}
           onClick={() => onSelect(date)}
         >
           {d}
