@@ -1,4 +1,5 @@
 import './TimeDropdown.css'
+import DropdownIcon from '../../../../assets/filter-bar/dropdown-icon.svg'
 
 const TIME_SLOTS = [
   '9~10:30',
@@ -16,16 +17,27 @@ const TIME_SLOTS = [
 export default function TimeDropdown({ selectedTime, onSelect }) {
   return (
     <div className='time-dropdown__list'>
-      {TIME_SLOTS.map((time) => (
-        <button
-          key={time}
-          type='button'
-          className={`time-dropdown__item ${selectedTime === time ? 'time-dropdown__item--selected' : ''}`}
-          onClick={() => onSelect(time)}
-        >
-          {time}
-        </button>
-      ))}
+      <div className='time-dropdown__header'>
+        <span className='time-dropdown__header-text'>선택</span>
+        <img
+          src={DropdownIcon}
+          alt=''
+          className='time-dropdown__header-icon time-dropdown__header-icon--open'
+        />
+      </div>
+      <div className='time-dropdown__divider' />
+      <div className='time-dropdown__items'>
+        {TIME_SLOTS.map((time) => (
+          <button
+            key={time}
+            type='button'
+            className={`time-dropdown__item ${selectedTime === time ? 'time-dropdown__item--selected' : ''}`}
+            onClick={() => onSelect(time)}
+          >
+            {time}
+          </button>
+        ))}
+      </div>
     </div>
   )
 }
