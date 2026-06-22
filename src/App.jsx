@@ -1,7 +1,13 @@
-import SignUp from './pages/SignUp/SignUp'
+import { RouterProvider } from 'react-router-dom'
+import { AppRouter } from './components/AppRouter'
+import styles from './App.module.css'
 
 function App() {
-  return <SignUp />
+  return (
+    <div className={styles.app}>
+      <RouterProvider router={AppRouter} />
+    </div>
+  )
 }
 
 export default App
