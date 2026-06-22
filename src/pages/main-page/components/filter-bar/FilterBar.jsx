@@ -88,7 +88,13 @@ export default function FilterBar({
           <span className='filter-bar__toggle-text'>{selectedTime || '시간'}</span>
           <img src={DropdownIcon} alt='' className='filter-bar__toggle-icon' />
         </div>
-        {isTimeOpen && <TimeDropdown selectedTime={selectedTime} onSelect={handleTimeSelect} />}
+        {isTimeOpen && (
+          <TimeDropdown
+            selectedDate={selectedDate}
+            selectedTime={selectedTime}
+            onSelect={handleTimeSelect}
+          />
+        )}
       </div>
 
       <div className='filter-bar__toggle-wrapper' ref={floorRef}>
