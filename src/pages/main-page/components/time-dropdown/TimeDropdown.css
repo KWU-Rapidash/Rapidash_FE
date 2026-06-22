@@ -63,3 +63,9 @@
   background-color: color-mix(in srgb, var(--color-main) 50%, transparent);
   color: #2d3648;
 }
+
+/* 현재 시간보다 이전 시간대 */
+.time-dropdown__item--disabled {
+  color: #d5d8de;
+  cursor: default;
+}

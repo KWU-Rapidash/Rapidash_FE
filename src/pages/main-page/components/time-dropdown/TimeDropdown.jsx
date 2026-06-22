@@ -14,7 +14,12 @@ const TIME_SLOTS = [
   '21~22',
 ]
 
-export default function TimeDropdown({ selectedTime, onSelect }) {
+export default function TimeDropdown({ selectedDate, selectedTime, onSelect }) {
+  const now = new Date()
+
+  // 선택한 날짜가 오늘인지 확인
+  const isToday = selectedDate && selectedDate.toDateString() === now.toDateString()
+
   return (
     <div className='time-dropdown__list'>
       <div className='time-dropdown__header'>
@@ -25,18 +30,32 @@ export default function TimeDropdown({ selectedTime, onSelect }) {
           className='time-dropdown__header-icon time-dropdown__header-icon--open'
         />
       </div>
+
       <div className='time-dropdown__divider' />
+
       <div className='time-dropdown__items'>
-        {TIME_SLOTS.map((time) => (
-          <button
-            key={time}
-            type='button'
-            className={`time-dropdown__item ${selectedTime === time ? 'time-dropdown__item--selected' : ''}`}
-            onClick={() => onSelect(time)}
-          >
-            {time}
-          </button>
-        ))}
+        {TIME_SLOTS.map((time) => {
+          // 시간대 시작 시간 추출
+          const startHour = Number(time.split('~')[0].split(':')[0])
+
+          // 오늘일 경우 현재 시간보다 이전 시간대는 선택 불가
+          const isPastTime = isToday && startHour < now.getHours()
+
+          return (
+            <button
+              key={time}
+              type='button'
+              disabled={isPastTime}
+              className={`time-dropdown__item
+                ${selectedTime === time ? 'time-dropdown__item--selected' : ''}
+                ${isPastTime ? 'time-dropdown__item--disabled' : ''}
+              `}
+              onClick={() => onSelect(time)}
+            >
+              {time}
+            </button>
+          )
+        })}
       </div>
     </div>
   )
