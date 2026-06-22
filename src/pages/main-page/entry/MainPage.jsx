@@ -79,15 +79,20 @@ export default function MainPage() {
       </div>
 
       <div className='main-page__content'>
-        <FilterBar
-          selectedDate={selectedDate}
-          onDateSelect={setSelectedDate}
-          selectedTime={selectedTime}
-          onTimeSelect={setSelectedTime}
-          selectedFloor={selectedFloor}
-          onFloorSelect={setSelectedFloor}
-        />
-        <FloorMap floor={selectedFloor} roomStatus={roomStatus} onRoomClick={handleRoomClick} />
+        <div className='main-page__filter'>
+          <FilterBar
+            selectedDate={selectedDate}
+            onDateSelect={setSelectedDate}
+            selectedTime={selectedTime}
+            onTimeSelect={setSelectedTime}
+            selectedFloor={selectedFloor}
+            onFloorSelect={setSelectedFloor}
+          />
+        </div>
+
+        <div className='main-page__floor-map'>
+          <FloorMap floor={selectedFloor} roomStatus={roomStatus} onRoomClick={handleRoomClick} />
+        </div>
       </div>
 
       <ReservationModal

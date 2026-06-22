@@ -47,6 +47,14 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 20px 24px;
-  gap: 20px;
+  padding: 48px 0;
+  gap: 48px;
+}
+
+.main-page__filter {
+  padding: 0 24px;
+}
+
+.main-page__floor-map {
+  padding: 0 40px;
 }
