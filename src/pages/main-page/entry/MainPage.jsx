@@ -19,7 +19,7 @@ import ConfirmModal from '../components/confirm-modal/ConfirmModal'
 import { fetchRoomStatus } from '../apis/fetchRoomStatus'
 
 export default function MainPage() {
-  const [selectedDate, setSelectedDate] = useState(null)
+  const [selectedDate, setSelectedDate] = useState(new Date())
   const [selectedTime, setSelectedTime] = useState(null)
   const [selectedFloor, setSelectedFloor] = useState('1층')
   const [roomStatus, setRoomStatus] = useState({})
@@ -45,6 +45,12 @@ export default function MainPage() {
 
   // 강의실 클릭 시 예약 신청 모달 열기
   const handleRoomClick = (roomId) => {
+    if (!selectedDate || !selectedTime || !selectedFloor) {
+      // 임시 오류 처리
+      alert('날짜, 시간, 층을 모두 선택해주세요.')
+      return
+    }
+
     setSelectedRoom(roomId)
     setIsReservationOpen(true)
   }
