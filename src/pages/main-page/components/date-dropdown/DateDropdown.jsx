@@ -38,31 +38,64 @@ export default function DateDropdown({ selectedDate, onSelect }) {
     const firstDay = getFirstDayOfMonth(currentYear, currentMonth)
     const days = []
 
-    // 1일 전 빈 칸 채우기
-    for (let i = 0; i < firstDay; i++) {
-      days.push(<div key={`empty-${i}`} className='date-dropdown__day' />)
+    const prevMonthDays = getDaysInMonth(
+      currentMonth === 0 ? currentYear - 1 : currentYear,
+      currentMonth === 0 ? 11 : currentMonth - 1,
+    )
+
+    for (let i = firstDay - 1; i >= 0; i--) {
+      days.push(
+        <div key={`prev-${i}`} className='date-dropdown__day date-dropdown__day--other'>
+          {prevMonthDays - i}
+        </div>,
+      )
     }
 
     // 날짜 버튼 렌더링
     for (let d = 1; d <= daysInMonth; d++) {
       const date = new Date(currentYear, currentMonth, d)
+
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+
+      const isPastDate = date < today
+
       const isSelected =
         selectedDate &&
         selectedDate.getFullYear() === currentYear &&
         selectedDate.getMonth() === currentMonth &&
         selectedDate.getDate() === d
 
+      const isWeekend = date.getDay() === 0 || date.getDay() === 6
+
       days.push(
         <button
           key={d}
           type='button'
-          className={`date-dropdown__day ${isSelected ? 'date-dropdown__day--selected' : ''}`}
+          disabled={isPastDate}
+          className={`date-dropdown__day
+    ${isSelected ? 'date-dropdown__day--selected' : ''}
+    ${isWeekend ? 'date-dropdown__day--weekend' : ''}
+    ${isPastDate ? 'date-dropdown__day--disabled' : ''}
+  `}
           onClick={() => onSelect(date)}
         >
           {d}
         </button>,
       )
     }
+
+    let nextDay = 1
+
+    while (days.length % 7 !== 0) {
+      days.push(
+        <div key={`next-${nextDay}`} className='date-dropdown__day date-dropdown__day--other'>
+          {nextDay}
+        </div>,
+      )
+      nextDay++
+    }
+
     return days
   }
 
@@ -81,7 +114,14 @@ export default function DateDropdown({ selectedDate, onSelect }) {
 
       <div className='date-dropdown__weekdays'>
         {DAYS.map((day) => (
-          <div key={day} className='date-dropdown__weekday'>
+          <div
+            key={day}
+            className={`date-dropdown__weekday ${
+              day === '일' || day === '토'
+                ? 'date-dropdown__weekday--weekend'
+                : 'date-dropdown__weekday--weekday'
+            }`}
+          >
             {day}
           </div>
         ))}
