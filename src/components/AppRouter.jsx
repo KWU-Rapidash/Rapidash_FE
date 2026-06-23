@@ -18,7 +18,7 @@ export const AppRouter = createBrowserRouter([
         element: <MypageLayout />,
         children: [
           { path: '', element: <MypageAccountPage /> },
-          { path: '/reservation', element: <MypageReservationPage /> },
+          { path: 'reservation', element: <MypageReservationPage /> },
         ],
       },
     ],
