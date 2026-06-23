@@ -9,7 +9,7 @@ import ConfirmModal from '../components/confirm-modal/ConfirmModal'
 import { fetchRoomStatus } from '../apis/fetchRoomStatus'
 
 export default function MainPage() {
-  const [selectedDate, setSelectedDate] = useState(null)
+  const [selectedDate, setSelectedDate] = useState(new Date())
   const [selectedTime, setSelectedTime] = useState(null)
   const [selectedFloor, setSelectedFloor] = useState('1층')
   const [roomStatus, setRoomStatus] = useState({})
