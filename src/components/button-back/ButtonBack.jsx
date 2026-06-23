@@ -1,3 +1,5 @@
+import './InputForm.css'
+
 function ButtonBack() {
   return (
     <button className="button-back" type="button" aria-label="뒤로가기">
