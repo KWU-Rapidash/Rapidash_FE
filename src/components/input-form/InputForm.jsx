@@ -1,3 +1,5 @@
+import './InputForm.css'
+
 function InputForm() {
   return (
     <div className="input-form">
