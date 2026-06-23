@@ -1,0 +1,20 @@
+.button-default {
+  width: 300px;
+  height: 52px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-main);
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.button-default:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
