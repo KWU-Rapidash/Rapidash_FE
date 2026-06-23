@@ -1,17 +1,7 @@
 import { useState, useEffect } from 'react'
 import './MainPage.css'
-<<<<<<< HEAD
-<<<<<<< HEAD
 import KwangwoonLogo from '../../../assets/header/kwangwoon-logo.svg'
 import MypageIcon from '../../../assets/header/mypage-icon.svg'
-=======
-import { ReactComponent as KwangwoonLogo } from '../../../assets/header/kwangwoon-logo.svg'
-import { ReactComponent as MypageIcon } from '../../../assets/header/mypage-icon.svg'
->>>>>>> 8539197 (design : 메인 페이지 에셋 추가 및 import (#28))
-=======
-import KwangwoonLogo from '../../../assets/header/kwangwoon-logo.svg'
-import MypageIcon from '../../../assets/header/mypage-icon.svg'
->>>>>>> 02871cc (design : 메인 페이지 에셋 적용 (#28))
 import FilterBar from '../components/filter-bar/FilterBar'
 import FloorMap from '../components/floor-map/FloorMap'
 import ReservationModal from '../components/reservation-modal/ReservationModal'
@@ -27,7 +17,6 @@ export default function MainPage() {
   const [isReservationOpen, setIsReservationOpen] = useState(false)
   const [isConfirmOpen, setIsConfirmOpen] = useState(false)
 
-  // 날짜/시간/층 변경 시 예약 현황 조회
   useEffect(() => {
     if (!selectedDate || !selectedTime || !selectedFloor) return
 
@@ -43,10 +32,8 @@ export default function MainPage() {
     loadRoomStatus()
   }, [selectedDate, selectedTime, selectedFloor])
 
-  // 강의실 클릭 시 예약 신청 모달 열기
   const handleRoomClick = (roomId) => {
     if (!selectedDate || !selectedTime || !selectedFloor) {
-      // 임시 오류 처리
       alert('날짜, 시간, 층을 모두 선택해주세요.')
       return
     }
@@ -55,7 +42,6 @@ export default function MainPage() {
     setIsReservationOpen(true)
   }
 
-  // 예약 신청 후 확정 모달 열기
   const handleConfirm = () => {
     setIsReservationOpen(false)
     setIsConfirmOpen(true)
@@ -65,21 +51,9 @@ export default function MainPage() {
     <div className='main-page'>
       <div className='main-page__topbar'>
         <div className='main-page__topbar-inner'>
-<<<<<<< HEAD
-<<<<<<< HEAD
           <img className='main-page__topbar-logo' src={KwangwoonLogo} alt='광운대학교' />
           <button className='main-page__topbar-mypage' type='button'>
             <img src={MypageIcon} alt='마이페이지' />
-=======
-          <KwangwoonLogo className='main-page__topbar-logo' />
-          <button className='main-page__topbar-mypage' type='button'>
-            <MypageIcon />
->>>>>>> 8539197 (design : 메인 페이지 에셋 추가 및 import (#28))
-=======
-          <img className='main-page__topbar-logo' src={KwangwoonLogo} alt='광운대학교' />
-          <button className='main-page__topbar-mypage' type='button'>
-            <img src={MypageIcon} alt='마이페이지' />
->>>>>>> 02871cc (design : 메인 페이지 에셋 적용 (#28))
           </button>
         </div>
       </div>

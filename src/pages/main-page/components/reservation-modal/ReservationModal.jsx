@@ -13,7 +13,6 @@ export default function ReservationModal({
 }) {
   const [studentId, setStudentId] = useState('')
 
-  // 모달 열릴 때 예약자 정보 조회
   useEffect(() => {
     if (!isOpen) return
 
@@ -27,7 +26,6 @@ export default function ReservationModal({
 
   if (!isOpen) return null
 
-  // 날짜 포맷
   const formatDate = (date) => {
     if (!date) return ''
     const mm = date.getMonth() + 1
@@ -35,7 +33,6 @@ export default function ReservationModal({
     return `${mm}/${dd}`
   }
 
-  // 예약 신청 버튼 클릭
   const handleReservation = async () => {
     await postReservation({
       date: selectedDate,
@@ -46,14 +43,6 @@ export default function ReservationModal({
     onConfirm()
   }
 
-<<<<<<< HEAD
-export default function ReservationModal() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 57a339e (design : 예약 신청 모달 마크업 (#20))
-=======
->>>>>>> e5eb045 (feat : 예약 신청 모달 기능 구현 (#15))
   return (
     <div className='reservation-modal__overlay' onClick={onClose}>
       <div className='reservation-modal' onClick={(e) => e.stopPropagation()}>
@@ -84,10 +73,4 @@ export default function ReservationModal() {
       </div>
     </div>
   )
-<<<<<<< HEAD
-=======
-  return null
->>>>>>> 869d6b7 (design : 메인 페이지 레이아웃 마크업 및 라우터 등록 (#27))
-=======
->>>>>>> 57a339e (design : 예약 신청 모달 마크업 (#20))
 }

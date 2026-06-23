@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { useState, useRef, useEffect } from 'react'
 import './FilterBar.css'
 import CalendarIcon from '../../../../assets/filter-bar/calendar-icon.svg'
 import DropdownIcon from '../../../../assets/filter-bar/dropdown-icon.svg'
 import DateDropdown from '../date-dropdown/DateDropdown'
 import TimeDropdown from '../time-dropdown/TimeDropdown'
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2feddc5 (feat : 층 드롭다운 열기/닫기 및 층 선택 상태 관리 (#14))
 import FloorDropdown from '../floor-dropdown/FloorDropdown'
 
 export default function FilterBar({
@@ -23,16 +17,10 @@ export default function FilterBar({
   const [isDateOpen, setIsDateOpen] = useState(false)
   const [isTimeOpen, setIsTimeOpen] = useState(false)
   const [isFloorOpen, setIsFloorOpen] = useState(false)
-<<<<<<< HEAD
-  const [selectedFloor, setSelectedFloor] = useState(null)
-<<<<<<< HEAD
-=======
->>>>>>> f1ee050 (feat : 필터 바 props 연결 (#26))
   const dateRef = useRef(null)
   const timeRef = useRef(null)
   const floorRef = useRef(null)
 
-  // 외부 클릭 시 드롭다운 닫기
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dateRef.current && !dateRef.current.contains(e.target)) {
@@ -49,7 +37,6 @@ export default function FilterBar({
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  // 날짜를 mm/dd/yy 형식으로
   const formatDate = (date) => {
     if (!date) return '날짜'
     const mm = String(date.getMonth() + 1).padStart(2, '0')
@@ -108,110 +95,4 @@ export default function FilterBar({
       </div>
     </div>
   )
-=======
-=======
-import { useState, useRef, useEffect } from 'react'
->>>>>>> 075fef2 (feat : 날짜 드롭다운 열기/닫기 및 날짜 선택 상태 관리 (#12))
-import './FilterBar.css'
-import CalendarIcon from '../../../../assets/filter-bar/calendar-icon.svg'
-import DropdownIcon from '../../../../assets/filter-bar/dropdown-icon.svg'
-import DateDropdown from '../date-dropdown/DateDropdown'
-=======
->>>>>>> 5aaf714 (feat : 시간 드롭다운 열기/닫기 및 시간 선택 상태 관리 (#13))
-
-export default function FilterBar() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  return null
->>>>>>> 869d6b7 (design : 메인 페이지 레이아웃 마크업 및 라우터 등록 (#27))
-=======
-=======
-  const [isDateOpen, setIsDateOpen] = useState(false)
-  const [selectedDate, setSelectedDate] = useState(null)
-  const [isTimeOpen, setIsTimeOpen] = useState(false)
-  const [selectedTime, setSelectedTime] = useState(null)
-=======
->>>>>>> 2feddc5 (feat : 층 드롭다운 열기/닫기 및 층 선택 상태 관리 (#14))
-  const dateRef = useRef(null)
-  const timeRef = useRef(null)
-  const floorRef = useRef(null)
-
-  // 외부 클릭 시 드롭다운 닫기
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dateRef.current && !dateRef.current.contains(e.target)) {
-        setIsDateOpen(false)
-      }
-      if (timeRef.current && !timeRef.current.contains(e.target)) {
-        setIsTimeOpen(false)
-      }
-      if (floorRef.current && !floorRef.current.contains(e.target)) {
-        setIsFloorOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
-  // 날짜를 mm/dd/yy 형식으로
-  const formatDate = (date) => {
-    if (!date) return '날짜'
-    const mm = String(date.getMonth() + 1).padStart(2, '0')
-    const dd = String(date.getDate()).padStart(2, '0')
-    const yy = String(date.getFullYear()).slice(2)
-    return `${mm}/${dd}/${yy}`
-  }
-
-  const handleDateSelect = (date) => {
-    setSelectedDate(date)
-    setIsDateOpen(false)
-  }
-
-<<<<<<< HEAD
->>>>>>> 075fef2 (feat : 날짜 드롭다운 열기/닫기 및 날짜 선택 상태 관리 (#12))
-=======
-  const handleTimeSelect = (time) => {
-    setSelectedTime(time)
-    setIsTimeOpen(false)
-  }
-
-<<<<<<< HEAD
->>>>>>> 5aaf714 (feat : 시간 드롭다운 열기/닫기 및 시간 선택 상태 관리 (#13))
-=======
-  const handleFloorSelect = (floor) => {
-    setSelectedFloor(floor)
-    setIsFloorOpen(false)
-  }
-
->>>>>>> 2feddc5 (feat : 층 드롭다운 열기/닫기 및 층 선택 상태 관리 (#14))
-  return (
-    <div className='filter-bar'>
-      <div className='filter-bar__toggle-wrapper' ref={dateRef}>
-        <div className='filter-bar__toggle' onClick={() => setIsDateOpen((prev) => !prev)}>
-          <img src={CalendarIcon} alt='캘린더' className='filter-bar__toggle-calendar' />
-          <span className='filter-bar__toggle-text'>{formatDate(selectedDate)}</span>
-        </div>
-        {isDateOpen && <DateDropdown selectedDate={selectedDate} onSelect={handleDateSelect} />}
-      </div>
-
-      <div className='filter-bar__toggle-wrapper' ref={timeRef}>
-        <div className='filter-bar__toggle' onClick={() => setIsTimeOpen((prev) => !prev)}>
-          <span className='filter-bar__toggle-text'>{selectedTime || '시간'}</span>
-          <img src={DropdownIcon} alt='' className='filter-bar__toggle-icon' />
-        </div>
-        {isTimeOpen && <TimeDropdown selectedTime={selectedTime} onSelect={handleTimeSelect} />}
-      </div>
-
-      <div className='filter-bar__toggle-wrapper' ref={floorRef}>
-        <div className='filter-bar__toggle' onClick={() => setIsFloorOpen((prev) => !prev)}>
-          <span className='filter-bar__toggle-text'>{selectedFloor || '1층'}</span>
-          <img src={DropdownIcon} alt='' className='filter-bar__toggle-icon' />
-        </div>
-        {isFloorOpen && (
-          <FloorDropdown selectedFloor={selectedFloor} onSelect={handleFloorSelect} />
-        )}
-      </div>
-    </div>
-  )
->>>>>>> 4e3bdd3 (design : 상단 필터 바 마크업 (#18))
 }

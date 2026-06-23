@@ -9,19 +9,9 @@
   width: 100%;
 
   background-color: var(--color-white);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b8cc908 (design : 플로어맵 스타일 수정 (#24))
 }
 
 .floor-map__image {
   width: 100%;
   height: auto;
-<<<<<<< HEAD
-=======
-  border: 1px solid var(--color-black);
->>>>>>> 6e7a906 (design : 플로어맵 스타일 적용 (#19))
-=======
->>>>>>> b8cc908 (design : 플로어맵 스타일 수정 (#24))
 }
