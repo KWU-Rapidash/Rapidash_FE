@@ -1,9 +1,19 @@
 import './ButtonDefault.css'
 
-function ButtonDefault() {
+function ButtonDefault({
+  children = '버튼',
+  type = 'button',
+  onClick,
+  disabled = false,
+}) {
   return (
-    <button className="button-default" type="button">
-      버튼
+    <button
+      className="button-default"
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {children}
     </button>
   )
 }
