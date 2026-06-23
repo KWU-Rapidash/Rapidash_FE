@@ -6,18 +6,21 @@ import DateDropdown from '../date-dropdown/DateDropdown'
 import TimeDropdown from '../time-dropdown/TimeDropdown'
 import FloorDropdown from '../floor-dropdown/FloorDropdown'
 
-export default function FilterBar() {
+export default function FilterBar({
+  selectedDate,
+  onDateSelect,
+  selectedTime,
+  onTimeSelect,
+  selectedFloor,
+  onFloorSelect,
+}) {
   const [isDateOpen, setIsDateOpen] = useState(false)
-  const [selectedDate, setSelectedDate] = useState(null)
   const [isTimeOpen, setIsTimeOpen] = useState(false)
-  const [selectedTime, setSelectedTime] = useState(null)
   const [isFloorOpen, setIsFloorOpen] = useState(false)
-  const [selectedFloor, setSelectedFloor] = useState(null)
   const dateRef = useRef(null)
   const timeRef = useRef(null)
   const floorRef = useRef(null)
 
-  // 외부 클릭 시 드롭다운 닫기
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dateRef.current && !dateRef.current.contains(e.target)) {
@@ -34,7 +37,6 @@ export default function FilterBar() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  // 날짜를 mm/dd/yy 형식으로
   const formatDate = (date) => {
     if (!date) return '날짜'
     const mm = String(date.getMonth() + 1).padStart(2, '0')
@@ -44,17 +46,17 @@ export default function FilterBar() {
   }
 
   const handleDateSelect = (date) => {
-    setSelectedDate(date)
+    onDateSelect(date)
     setIsDateOpen(false)
   }
 
   const handleTimeSelect = (time) => {
-    setSelectedTime(time)
+    onTimeSelect(time)
     setIsTimeOpen(false)
   }
 
   const handleFloorSelect = (floor) => {
-    setSelectedFloor(floor)
+    onFloorSelect(floor)
     setIsFloorOpen(false)
   }
 
@@ -73,7 +75,13 @@ export default function FilterBar() {
           <span className='filter-bar__toggle-text'>{selectedTime || '시간'}</span>
           <img src={DropdownIcon} alt='' className='filter-bar__toggle-icon' />
         </div>
-        {isTimeOpen && <TimeDropdown selectedTime={selectedTime} onSelect={handleTimeSelect} />}
+        {isTimeOpen && (
+          <TimeDropdown
+            selectedDate={selectedDate}
+            selectedTime={selectedTime}
+            onSelect={handleTimeSelect}
+          />
+        )}
       </div>
 
       <div className='filter-bar__toggle-wrapper' ref={floorRef}>
