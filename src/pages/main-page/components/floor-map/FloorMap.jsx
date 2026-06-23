@@ -5,6 +5,7 @@ import Floor2 from '../../../../assets/floor-map/floor-2.svg?react'
 export default function FloorMap({ floor = '1층', roomStatus = {}, onRoomClick }) {
   const FloorSvg = floor === '1층' ? Floor1 : Floor2
 
+  // 강의실 상태에 따른 색상 반환
   const getRoomFill = (roomId) => {
     const status = roomStatus[roomId]
     if (status === 'reserved') return '#77222d'

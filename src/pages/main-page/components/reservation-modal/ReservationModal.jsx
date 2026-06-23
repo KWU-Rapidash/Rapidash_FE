@@ -13,6 +13,7 @@ export default function ReservationModal({
 }) {
   const [studentId, setStudentId] = useState('')
 
+  // 모달 열릴 때 예약자 정보 조회
   useEffect(() => {
     if (!isOpen) return
 
@@ -26,6 +27,7 @@ export default function ReservationModal({
 
   if (!isOpen) return null
 
+  // 날짜 포맷
   const formatDate = (date) => {
     if (!date) return ''
     const mm = date.getMonth() + 1
@@ -33,6 +35,7 @@ export default function ReservationModal({
     return `${mm}/${dd}`
   }
 
+  // 예약 신청 버튼 클릭
   const handleReservation = async () => {
     await postReservation({
       date: selectedDate,

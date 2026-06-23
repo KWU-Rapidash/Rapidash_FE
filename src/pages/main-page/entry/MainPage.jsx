@@ -17,6 +17,7 @@ export default function MainPage() {
   const [isReservationOpen, setIsReservationOpen] = useState(false)
   const [isConfirmOpen, setIsConfirmOpen] = useState(false)
 
+  // 날짜/시간/층 변경 시 예약 현황 조회
   useEffect(() => {
     if (!selectedDate || !selectedTime || !selectedFloor) return
 
@@ -42,6 +43,7 @@ export default function MainPage() {
     setIsReservationOpen(true)
   }
 
+  // 예약 신청 후 확정 모달 열기
   const handleConfirm = () => {
     setIsReservationOpen(false)
     setIsConfirmOpen(true)
