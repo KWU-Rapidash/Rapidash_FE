@@ -1,0 +1,40 @@
+﻿.signup-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+.signup-container {
+  width: 100%;
+  max-width: 375px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 144px 37px 0;
+  box-sizing: border-box;
+  background-color: var(--color-background);
+}
+
+.signup-title-area {
+  margin-top: 41px;
+}
+
+.signup-title-area h1 {
+  margin: 0;
+  color: var(--color-main);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.signup-title-area p {
+  margin: 10px 0 0;
+  color: var(--color-sub);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.signup-form {
+  margin-top: 21px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
