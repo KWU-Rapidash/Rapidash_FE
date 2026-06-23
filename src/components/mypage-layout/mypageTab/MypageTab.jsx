@@ -1,7 +1,25 @@
 import './MypageTab.css'
+import { NavLink } from 'react-router-dom'
 
 function MypageTab() {
-  return <div>MypageTab</div>
+  return (
+    <div className='mypageTab__container'>
+      <NavLink
+        to='/mypage/reservation'
+        className={({ isActive }) => `mypageTab__item ${isActive ? 'active' : ''}`}
+      >
+        예약정보
+      </NavLink>
+
+      <NavLink
+        to='/mypage'
+        end
+        className={({ isActive }) => `mypageTab__item ${isActive ? 'active' : ''}`}
+      >
+        내 계정
+      </NavLink>
+    </div>
+  )
 }
 
 export default MypageTab
