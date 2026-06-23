@@ -1,7 +1,16 @@
 import './MypageLayout.css'
+import { Outlet } from 'react-router-dom'
+import MypageTab from './mypageTab/MypageTab'
 
 function MypageLayout() {
-  return <div>MypageLayout{/*마이페이지 탭 + outlet*/}</div>
+  return (
+    <div className='mypageLayout__container'>
+      <MypageTab />
+      <div className='mypageLayout__page'>
+        <Outlet />
+      </div>
+    </div>
+  )
 }
 
 export default MypageLayout
