@@ -26,24 +26,55 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+
+  width: 32px;
+  height: 32px;
   font-size: 16px;
-  color: var(--color-black);
+
+  border: 1px solid #b6b9c1;
   border-radius: 5px;
+
+  color: var(--color-black);
 }
 
 /* 월/년도 텍스트 */
 .date-dropdown__month,
 .date-dropdown__year {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
 
-  color: rgba(0, 0, 0, 0.87);
+  color: var(--color-black);
 }
 
-/* 요일/날짜 7열 그리드 */
-.date-dropdown__weekdays,
+/* 요일 공통 */
+.date-dropdown__weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  font-size: 16px;
+}
+
+.date-dropdown__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 44px);
+}
+
+/* 월~금 */
+.date-dropdown__weekday--weekday {
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+/* 토, 일 */
+.date-dropdown__weekday--weekend {
+  font-weight: 300;
+  color: #d5d8de;
+}
+
 .date-dropdown__days {
   display: grid;
   grid-template-columns: repeat(7, 44px);
@@ -58,7 +89,7 @@
   height: 44px;
   font-size: 16px;
 
-  color: rgba(0, 0, 0, 0.87);
+  color: var(--color-black);
 }
 
 /* 날짜 버튼 */
@@ -66,12 +97,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 44px;
   height: 44px;
+
   font-size: 16px;
   font-weight: 300;
 
-  color: rgba(0, 0, 0, 0.87);
+  color: var(--color-black);
   border-radius: 100px;
 }
 
@@ -79,4 +112,19 @@
 .date-dropdown__day--selected {
   background-color: var(--color-main);
   color: var(--color-background);
+}
+
+/* 현재 달의 토, 일 */
+.date-dropdown__day--weekend {
+  color: #d5d8de;
+}
+
+/* 이전/다음 달 날짜 */
+.date-dropdown__day--other {
+  color: #d5d8de;
+}
+
+.date-dropdown__day--disabled {
+  color: #d5d8de;
+  cursor: default;
 }
