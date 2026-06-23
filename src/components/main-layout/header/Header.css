@@ -1,0 +1,27 @@
+.header__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-header);
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.header__logo {
+  display: block;
+}
+
+.header__back {
+  position: absolute;
+  left: 20px;
+}
+
+.header__mypage {
+  position: absolute;
+  right: 20px;
+}
