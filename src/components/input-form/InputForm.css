@@ -26,6 +26,13 @@
   margin-left: auto;
 }
 
+.input-form__right-button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .input-form__input {
   flex: 1;
   min-width: 0;

@@ -9,6 +9,8 @@ function InputForm({
   leftIcon,
   rightIcon,
   onChange,
+  onRightIconClick,
+  rightIconAriaLabel = '아이콘 버튼',
   disabled = false,
 }) {
   return (
@@ -30,11 +32,22 @@ function InputForm({
         disabled={disabled}
       />
 
-      {rightIcon && (
-        <div className="input-form__right-icon" aria-hidden="true">
-          {rightIcon}
-        </div>
-      )}
+      {rightIcon &&
+        (onRightIconClick ? (
+          <button
+            className="input-form__right-icon input-form__right-button"
+            type="button"
+            aria-label={rightIconAriaLabel}
+            onClick={onRightIconClick}
+            disabled={disabled}
+          >
+            {rightIcon}
+          </button>
+        ) : (
+          <div className="input-form__right-icon" aria-hidden="true">
+            {rightIcon}
+          </div>
+        ))}
     </div>
   )
 }
