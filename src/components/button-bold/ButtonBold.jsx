@@ -1,7 +1,11 @@
 import './ButtonBold.css'
 
-function ButtonBold() {
-  return <div>ButtonBold</div>
+function ButtonBold({ content, onClick }) {
+  return (
+    <div className='buttonBold' onClick={onClick}>
+      {content}
+    </div>
+  )
 }
 
 export default ButtonBold
