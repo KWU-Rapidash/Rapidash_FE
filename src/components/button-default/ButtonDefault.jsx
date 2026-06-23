@@ -1,3 +1,5 @@
+import './ButtonDefault.css'
+
 function ButtonDefault() {
   return (
     <button className="button-default" type="button">
