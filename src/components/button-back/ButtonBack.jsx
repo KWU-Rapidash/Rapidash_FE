@@ -1,3 +1,4 @@
+﻿import ArrowLeftIcon from '../../assets/button-back/arrow-left.svg?react'
 import './ButtonBack.css'
 
 function ButtonBack({
@@ -14,7 +15,7 @@ function ButtonBack({
       onClick={onClick}
       disabled={disabled}
     >
-      <span className="button-back__icon" aria-hidden="true" />
+      <ArrowLeftIcon className="button-back__icon" aria-hidden="true" />
     </button>
   )
 }
