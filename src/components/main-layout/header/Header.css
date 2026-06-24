@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+  height: 68px;
   background-color: var(--color-white);
   box-shadow: var(--shadow-header);
 }
