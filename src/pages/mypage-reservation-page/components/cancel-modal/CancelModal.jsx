@@ -1,5 +1,11 @@
 function CancelModal({ onClose }) {
-  return <div onClick={onClose}>CancelModal</div>
+  return (
+    <div className='cancelModal__overlay'>
+      <div className='cancelModal__container'>
+        Are you sure you want to cancel this reservation?
+      </div>
+    </div>
+  )
 }
 
 export default CancelModal
