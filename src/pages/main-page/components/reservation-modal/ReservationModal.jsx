@@ -37,11 +37,12 @@ export default function ReservationModal({
 
   // 예약 신청 버튼 클릭
   const handleReservation = async () => {
+    const [startTime, endTime] = selectedTime.split('~')
     await postReservation({
+      classroomId: `saebit-${selectedRoom}`,
       date: selectedDate,
-      time: selectedTime,
-      roomId: selectedRoom,
-      studentId,
+      startTime: startTime.trim(),
+      endTime: endTime.trim(),
     })
     onConfirm()
   }
