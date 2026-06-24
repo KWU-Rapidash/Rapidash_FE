@@ -19,19 +19,18 @@ export default function MainPage() {
 
   // 날짜/시간/층 변경 시 예약 현황 조회
   useEffect(() => {
-    if (!selectedDate || !selectedTime || !selectedFloor) return
+    if (!selectedDate || !selectedFloor) return
 
     const loadRoomStatus = async () => {
       const status = await fetchRoomStatus({
         date: selectedDate,
-        time: selectedTime,
         floor: selectedFloor,
       })
       setRoomStatus(status)
     }
 
     loadRoomStatus()
-  }, [selectedDate, selectedTime, selectedFloor])
+  }, [selectedDate, selectedFloor])
 
   const handleRoomClick = (roomId) => {
     if (!selectedDate || !selectedTime || !selectedFloor) {
