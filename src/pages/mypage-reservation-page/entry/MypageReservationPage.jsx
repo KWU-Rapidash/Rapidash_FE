@@ -1,7 +1,17 @@
 import './MypageReservationPage.css'
+
+import { useState } from 'react'
+
 import ButtonBold from '../../../components/button-bold/ButtonBold'
+import CancelModal from '../components/cancel-modal/CancelModal'
 
 function MypageReservationPage() {
+  const [showCancelModal, setShowCancelModal] = useState(false)
+
+  const handleCancel = () => {
+    setShowCancelModal(true)
+  }
+
   return (
     <>
       <div className='mypageReservation__container'>
@@ -22,7 +32,8 @@ function MypageReservationPage() {
           <div className='mypageReservation__value'>18~19</div>
         </div>
       </div>
-      <ButtonBold content='예약취소' />
+      <ButtonBold content='예약취소' onClick={handleCancel} />
+      {showCancelModal && <CancelModal onClose={() => setShowCancelModal(false)} />}
     </>
   )
 }
