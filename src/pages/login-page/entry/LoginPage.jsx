@@ -1,30 +1,86 @@
 import './LoginPage.css'
 
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import { login } from '../apis/auth'
+
 import { Icon } from '../../../components/icon/Icon'
 import ErrorModal from '../components/error-modal/ErrorModal'
 
 function LoginPage() {
+  const navigate = useNavigate()
+
+  const [klasId, setKlasId] = useState('')
+  const [password, setPassword] = useState('')
+  const [showErrorModal, setShowErrorModal] = useState(false)
+
+  const handleLogin = async () => {
+    const isSuccess = await login(klasId, password)
+
+    if (isSuccess) {
+      navigate('/main')
+    } else {
+      setShowErrorModal(true)
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (showErrorModal) {
+      setShowErrorModal(false)
+      return
+    }
+
+    handleLogin()
+  }
+
   return (
     <div className='login__container'>
       <div className='login__border--outer'>
         <div className='login__border--inner'>
-          <div className='login__form'>
+          <form className='login__form' onSubmit={handleSubmit}>
             <div className='login__input'>
               <Icon name='user-circle' width={14} height={14} />
-              <input type='email' placeholder='학교 이메일' />
+              <input
+                type='email'
+                placeholder='학교 이메일'
+                value={klasId}
+                onChange={(e) => setKlasId(e.target.value)}
+              />
             </div>
+
             <div className='login__input'>
               <Icon name='key-hole' width={14} height={14} />
-              <input type='password' placeholder='패스워드' />
+              <input
+                type='password'
+                placeholder='패스워드'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
-          </div>
-          <div className='login__button'>
-            <div className='login__button--signup'>회원가입</div>
-            <div className='login__button--login'>로그인</div>
-          </div>
+
+            <div className='login__button'>
+              <button type='button' className='login__button--signup'>
+                회원가입
+              </button>
+
+              <button type='submit' className='login__button--login'>
+                로그인
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-      <ErrorModal />
+
+      {showErrorModal && (
+        <ErrorModal
+          onClose={() => {
+            setShowErrorModal(false)
+          }}
+        />
+      )}
     </div>
   )
 }
