@@ -39,39 +39,40 @@ function LoginPage() {
   return (
     <div className='login__container'>
       <div className='login__border--outer'>
-        <div className='login__border--inner'>
-          <form className='login__form' onSubmit={handleSubmit}>
+        <form className='login__border--inner' onSubmit={handleSubmit}>
+          <div className='login__form'>
             <div className='login__input'>
-              <Icon name='user-circle' width={14} height={14} />
+              <Icon className='login__input--icon' name='user-circle' width={14} height={14} />
               <input
+                className='login__input--input'
                 type='email'
                 placeholder='학교 이메일'
                 value={klasId}
                 onChange={(e) => setKlasId(e.target.value)}
               />
             </div>
-
             <div className='login__input'>
-              <Icon name='key-hole' width={14} height={14} />
+              <Icon className='login__input--icon' name='key-hole' width={14} height={14} />
               <input
+                className='login__input--input'
                 type='password'
                 placeholder='패스워드'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+          </div>
 
-            <div className='login__button'>
-              <button type='button' className='login__button--signup'>
-                회원가입
-              </button>
+          <div className='login__button'>
+            <button type='button' className='login__button--signup login__button--button'>
+              회원가입
+            </button>
 
-              <button type='submit' className='login__button--login'>
-                로그인
-              </button>
-            </div>
-          </form>
-        </div>
+            <button type='submit' className='login__button--login login__button--button'>
+              로그인
+            </button>
+          </div>
+        </form>
       </div>
 
       {showErrorModal && (
