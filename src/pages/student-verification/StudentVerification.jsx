@@ -38,7 +38,6 @@ function StudentVerification() {
       navigate('/sign-up', {
         state: {
           success: dummyVerificationResponse.success,
-          klasId,
         },
       })
       return

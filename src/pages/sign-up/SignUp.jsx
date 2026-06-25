@@ -11,9 +11,8 @@ function SignUp() {
   const navigate = useNavigate()
   const location = useLocation()
   const isVerified = location.state?.success === true
-  const verifiedKlasId = location.state?.klasId ?? ''
 
-  const [studentId, setStudentId] = useState(verifiedKlasId)
+  const [studentId, setStudentId] = useState('')
   const [password, setPassword] = useState('')
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
