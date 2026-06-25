@@ -1,10 +1,10 @@
 const reservationInfo = {
   reservationId: 'reservation-uuid',
-  date: '2024-04-01',
-  classroom: '새빛 101',
+  date: '2026-06-25',
+  classroom: '새빛 205',
   reserverName: '박현지',
-  startTime: '09:00',
-  endTime: '10:30',
+  startTime: '18:00',
+  endTime: '19:00',
   status: 'RESERVED',
   //   status: 'CANCELLED',
 }

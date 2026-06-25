@@ -2,6 +2,6 @@
 export const fetchReservationInfo = async () => {
   // 더미 데이터
   return {
-    studentId: '20250224',
+    studentId: '2024402000',
   }
 }

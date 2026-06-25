@@ -45,8 +45,8 @@ function LoginPage() {
               <Icon className='login__input--icon' name='user-circle' width={14} height={14} />
               <input
                 className='login__input--input'
-                type='email'
-                placeholder='학교 이메일'
+                type='number'
+                placeholder='학번'
                 value={klasId}
                 onChange={(e) => setKlasId(e.target.value)}
               />
@@ -64,7 +64,11 @@ function LoginPage() {
           </div>
 
           <div className='login__button'>
-            <button type='button' className='login__button--signup login__button--button'>
+            <button
+              type='button'
+              onClick={() => navigate('/student-verification')}
+              className='login__button--signup login__button--button'
+            >
               회원가입
             </button>
 
