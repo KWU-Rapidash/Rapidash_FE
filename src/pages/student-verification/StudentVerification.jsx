@@ -10,6 +10,8 @@ import './StudentVerification.css'
 
 function StudentVerification() {
   const navigate = useNavigate()
+  const [klasId, setKlasId] = useState('')
+  const [klasPassword, setKlasPassword] = useState('')
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
   const handleBack = () => {
@@ -22,7 +24,27 @@ function StudentVerification() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    navigate('/sign-up')
+
+    if (!klasId.trim() || !klasPassword.trim()) {
+      alert('klas 아이디와 비밀번호를 모두 입력해주세요.')
+      return
+    }
+
+    const dummyVerificationResponse = {
+      success: true,
+    }
+
+    if (dummyVerificationResponse.success) {
+      navigate('/sign-up', {
+        state: {
+          success: dummyVerificationResponse.success,
+          klasId,
+        },
+      })
+      return
+    }
+
+    alert('재학생 인증에 실패했습니다.')
   }
 
   return (
@@ -41,6 +63,8 @@ function StudentVerification() {
           <InputForm
             type="text"
             placeholder="klas 아이디"
+            value={klasId}
+            onChange={(event) => setKlasId(event.target.value)}
             leftIcon={
               <UserCircleIcon className="student-verification__input-icon" />
             }
@@ -49,6 +73,8 @@ function StudentVerification() {
           <InputForm
             type={isPasswordVisible ? 'text' : 'password'}
             placeholder="klas 비밀번호"
+            value={klasPassword}
+            onChange={(event) => setKlasPassword(event.target.value)}
             leftIcon={
               <KeyholeIcon className="student-verification__input-icon" />
             }
@@ -67,4 +93,3 @@ function StudentVerification() {
 }
 
 export default StudentVerification
-

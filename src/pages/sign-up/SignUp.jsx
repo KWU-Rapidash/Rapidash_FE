@@ -1,5 +1,5 @@
 ﻿import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import UserCircleIcon from '../../assets/sign-up/user-circle.svg?react'
 import EyeIcon from '../../assets/sign-up/eye.svg?react'
 import ButtonBack from '../../components/button-back/ButtonBack'
@@ -9,10 +9,24 @@ import './SignUp.css'
 
 function SignUp() {
   const navigate = useNavigate()
+  const location = useLocation()
+  const isVerified = location.state?.success === true
+  const verifiedKlasId = location.state?.klasId ?? ''
+
+  const [studentId, setStudentId] = useState(verifiedKlasId)
+  const [password, setPassword] = useState('')
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
   const handleBack = () => {
     navigate(-1)
+  }
+
+  const handleStudentIdChange = (event) => {
+    const nextStudentId = event.target.value
+
+    if (/^\d*$/.test(nextStudentId)) {
+      setStudentId(nextStudentId)
+    }
   }
 
   const handlePasswordVisible = () => {
@@ -21,7 +35,34 @@ function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    navigate('/')
+
+    if (!isVerified) {
+      alert('재학생 인증 후 회원가입을 진행해주세요.')
+      navigate('/student-verification')
+      return
+    }
+
+    if (!studentId.trim() || !password.trim()) {
+      alert('학번과 비밀번호를 모두 입력해주세요.')
+      return
+    }
+
+    if (!/^\d{10}$/.test(studentId.trim())) {
+      alert('학번은 숫자 10자리로 입력해주세요.')
+      return
+    }
+
+    const dummySignUpResponse = {
+      success: true,
+    }
+
+    if (dummySignUpResponse.success) {
+      alert('회원가입이 완료되었습니다.')
+      navigate('/')
+      return
+    }
+
+    alert('회원가입에 실패했습니다.')
   }
 
   return (
@@ -40,12 +81,16 @@ function SignUp() {
           <InputForm
             type="text"
             placeholder="학번"
+            value={studentId}
+            onChange={handleStudentIdChange}
             leftIcon={<UserCircleIcon className="sign-up__input-icon" />}
           />
 
           <InputForm
             type={isPasswordVisible ? 'text' : 'password'}
             placeholder="비밀번호"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
             leftIcon={<UserCircleIcon className="sign-up__input-icon" />}
             rightIcon={<EyeIcon className="sign-up__input-icon" />}
             onRightIconClick={handlePasswordVisible}

@@ -9,6 +9,8 @@ import './ResetPassword.css'
 
 function ResetPassword() {
   const navigate = useNavigate()
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false)
 
@@ -26,7 +28,28 @@ function ResetPassword() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    navigate('/')
+
+    if (!password.trim() || !confirmPassword.trim()) {
+      alert('새 비밀번호와 비밀번호 확인을 모두 입력해주세요.')
+      return
+    }
+
+    if (password !== confirmPassword) {
+      alert('비밀번호가 일치하지 않습니다.')
+      return
+    }
+
+    const dummyResetPasswordResponse = {
+      success: true,
+    }
+
+    if (dummyResetPasswordResponse.success) {
+      alert('비밀번호가 변경되었습니다.')
+      navigate('/')
+      return
+    }
+
+    alert('비밀번호 변경에 실패했습니다.')
   }
 
   return (
@@ -45,6 +68,8 @@ function ResetPassword() {
           <InputForm
             type={isPasswordVisible ? 'text' : 'password'}
             placeholder="새 비밀번호"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
             leftIcon={<KeyholeIcon className="reset-password__input-icon" />}
             rightIcon={<EyeIcon className="reset-password__input-icon" />}
             onRightIconClick={handlePasswordVisible}
@@ -56,6 +81,8 @@ function ResetPassword() {
           <InputForm
             type={isConfirmPasswordVisible ? 'text' : 'password'}
             placeholder="비밀번호 확인"
+            value={confirmPassword}
+            onChange={(event) => setConfirmPassword(event.target.value)}
             leftIcon={<KeyholeIcon className="reset-password__input-icon" />}
             rightIcon={<EyeIcon className="reset-password__input-icon" />}
             onRightIconClick={handleConfirmPasswordVisible}
