@@ -5,6 +5,9 @@ import MainPage from '../pages/main-page/entry/MainPage'
 import MypageLayout from './mypage-layout/MypageLayout'
 import MypageAccountPage from '../pages/mypage-account-page/entry/MypageAccountPage'
 import MypageReservationPage from '../pages/mypage-reservation-page/entry/MypageReservationPage'
+import StudentVerification from '../pages/student-verification/StudentVerification'
+import SignUp from '../pages/sign-up/SignUp'
+import ResetPassword from '../pages/reset-password/ResetPassword'
 
 export const AppRouter = createBrowserRouter([
   {
@@ -13,6 +16,9 @@ export const AppRouter = createBrowserRouter([
     children: [
       { path: '', element: <LoginPage /> },
       { path: 'main', element: <MainPage /> },
+      { path: 'student-verification', element: <StudentVerification /> },
+      { path: 'sign-up', element: <SignUp /> },
+      { path: 'reset-password', element: <ResetPassword /> },
       {
         path: 'mypage',
         element: <MypageLayout />,
