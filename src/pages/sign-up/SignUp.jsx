@@ -1,4 +1,5 @@
 ﻿import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import UserCircleIcon from '../../assets/sign-up/user-circle.svg?react'
 import EyeIcon from '../../assets/sign-up/eye.svg?react'
 import ButtonBack from '../../components/button-back/ButtonBack'
@@ -7,16 +8,26 @@ import InputForm from '../../components/input-form/InputForm'
 import './SignUp.css'
 
 function SignUp() {
+  const navigate = useNavigate()
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+
+  const handleBack = () => {
+    navigate(-1)
+  }
 
   const handlePasswordVisible = () => {
     setIsPasswordVisible((prev) => !prev)
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    navigate('/')
+  }
+
   return (
     <main className="sign-up">
       <section className="sign-up__container">
-        <ButtonBack />
+        <ButtonBack onClick={handleBack} />
 
         <div className="sign-up__title-area">
           <h1 className="sign-up__title">회원가입</h1>
@@ -25,7 +36,7 @@ function SignUp() {
           </p>
         </div>
 
-        <form className="sign-up__form">
+        <form className="sign-up__form" onSubmit={handleSubmit}>
           <InputForm
             type="text"
             placeholder="학번"
