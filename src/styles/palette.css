@@ -26,6 +26,9 @@
   --color-black: #1d1d1d;
   --color-white: #ffffff;
 
+  /* overlay 색상 */
+  --color-overlay: rgba(45, 54, 72, 0.8);
+
   /* 그림자 */
   --shadow-header: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
   --shadow-input: 0px 2px 4px 0 rgba(0, 0, 0, 0.25);

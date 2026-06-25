@@ -1,7 +1,17 @@
-import ButtonBold from '../../../components/button-bold/ButtonBold'
 import './MypageAccountPage.css'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'sonner'
+
+import ButtonBold from '../../../components/button-bold/ButtonBold'
 
 function MypageAccountPage() {
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    navigate('/')
+    toast.success('로그아웃되었습니다.')
+  }
+
   return (
     <>
       <div className='mypageAccount__container'>
@@ -18,7 +28,7 @@ function MypageAccountPage() {
           <div className='mypageAccount__value'>************</div>
         </div>
       </div>
-      <ButtonBold content='로그아웃' />
+      <ButtonBold content='로그아웃' onClick={handleLogout} />
     </>
   )
 }
