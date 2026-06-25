@@ -1,0 +1,37 @@
+.mainTest-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  background-color: var(--color-background);
+}
+
+.mainTest-page__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 48px 0;
+  gap: 48px;
+}
+
+.mainTest-page__filter {
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.mainTest-page__floor-map {
+  padding: 0 40px;
+}
+
+.mainTest__fakeButton {
+  width: 100%;
+  height: 68px;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0px;
+}

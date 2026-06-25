@@ -7,7 +7,9 @@ function CancelModal({ onClose }) {
 
   const handleCancel = () => {
     toast.success('예약이 취소되었습니다.')
-    navigate('/main')
+    // 시연용 더미 페이지 연결
+    navigate('/main-t')
+    // navigate('/main')
   }
 
   return (

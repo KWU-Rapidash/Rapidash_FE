@@ -9,6 +9,10 @@ import StudentVerification from '../pages/student-verification/StudentVerificati
 import SignUp from '../pages/sign-up/SignUp'
 import ResetPassword from '../pages/reset-password/ResetPassword'
 
+import MainTest from '../pages/test/MainTest'
+import AccountTest from '../pages/test/AccountTest'
+import ReservationTest from '../pages/test/ReservationTest'
+
 export const AppRouter = createBrowserRouter([
   {
     path: '/',
@@ -19,6 +23,9 @@ export const AppRouter = createBrowserRouter([
       { path: 'student-verification', element: <StudentVerification /> },
       { path: 'sign-up', element: <SignUp /> },
       { path: 'reset-password', element: <ResetPassword /> },
+      { path: 'main-t', element: <MainTest /> },
+      { path: 'mypage-t', element: <AccountTest /> },
+      { path: 'mypage-reservation-t', element: <ReservationTest /> },
       {
         path: 'mypage',
         element: <MypageLayout />,
