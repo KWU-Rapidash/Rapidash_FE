@@ -31,9 +31,9 @@ function StudentVerification() {
         <ButtonBack onClick={handleBack} />
 
         <div className="student-verification__title-area">
-          <h1 className="student-verification__title">학생 인증</h1>
+          <h1 className="student-verification__title">재학생 인증</h1>
           <p className="student-verification__description">
-            학생 인증을 위한 절차입니다
+            재학생 인증을 위한 절차입니다
           </p>
         </div>
 
@@ -67,3 +67,4 @@ function StudentVerification() {
 }
 
 export default StudentVerification
+
