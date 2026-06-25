@@ -19,6 +19,8 @@
 
 .main-page__filter {
   padding: 0 24px;
+  display: flex;
+  justify-content: center;
 }
 
 .main-page__floor-map {
