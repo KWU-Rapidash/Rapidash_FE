@@ -1,9 +1,9 @@
 import './ButtonBold.css'
 
-function ButtonBold({ content, onClick }) {
+function ButtonBold({ content, onClick, disabled = false }) {
   return (
     <div className='buttonBold__container'>
-      <button className='buttonBold__button' onClick={onClick}>
+      <button className='buttonBold__button' onClick={onClick} disabled={disabled}>
         {content}
       </button>
     </div>
