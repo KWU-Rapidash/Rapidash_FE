@@ -6,12 +6,12 @@
 
   width: 100%;
   max-width: 450px;
-
-  padding: 0 8%;
+  display: flex;
+  justify-content: center;
 }
 
 .buttonBold__button {
-  width: 100%;
+  width: 75%;
   height: 60px;
 
   border-radius: 16px;
