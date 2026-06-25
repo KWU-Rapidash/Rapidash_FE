@@ -1,40 +1,53 @@
 ﻿.student-verification {
   width: 100%;
-  min-height: 100vh;
+  height: calc(100vh - 96px);
+  overflow: hidden;
   background-color: var(--color-background);
 }
 
 .student-verification__container {
   width: 100%;
   max-width: 375px;
-  min-height: 100vh;
+  height: calc(100vh - 96px);
   margin: 0 auto;
-  padding: 144px 37px 0;
+  padding: 96px 37px 0;
   box-sizing: border-box;
   background-color: var(--color-background);
 }
 
 .student-verification__title-area {
-  margin-top: 40px;
+  margin-top: 41px;
 }
 
 .student-verification__title {
   margin: 0;
   color: var(--color-main);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.02em;
 }
 
 .student-verification__description {
-  margin: 10px 0 0;
+  margin: 6px 0 0;
   color: var(--color-sub);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 400;
+  line-height: 12px;
+  letter-spacing: -0.02em;
 }
 
 .student-verification__form {
+  width: 300px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 20px;
+}
+
+.student-verification__input-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-input-text);
+  display: block;
 }

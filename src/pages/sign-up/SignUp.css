@@ -1,13 +1,14 @@
 ﻿.sign-up {
   width: 100%;
-  min-height: 100vh;
+  height: calc(100vh - 96px);
+  overflow: hidden;
   background-color: var(--color-background);
 }
 
 .sign-up__container {
   width: 100%;
   max-width: 375px;
-  min-height: 100vh;
+  height: calc(100vh - 96px);
   margin: 0 auto;
   padding: 96px 37px 0;
   box-sizing: border-box;
